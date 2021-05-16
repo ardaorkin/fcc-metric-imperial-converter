@@ -21,6 +21,8 @@ function ConvertHandler() {
   this.getUnit = function (input) {
     let result;
     let unit = [];
+    const validUnits = ["gal", "l", "lbs", "kg", "mi", "km"];
+
     const array = input.split("");
     array.map((element) =>
       isNaN(parseInt(element)) === true && ![".", "/"].includes(element)
@@ -28,7 +30,7 @@ function ConvertHandler() {
         : element
     );
     result = unit.join("").toLowerCase();
-    return result;
+    return validUnits.includes(result) ? result : "invalid unit";
   };
 
   this.getReturnUnit = function (initUnit) {
