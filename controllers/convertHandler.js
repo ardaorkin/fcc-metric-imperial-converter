@@ -1,13 +1,17 @@
 function ConvertHandler() {
   this.getNum = function (input) {
-    let result;
     let num = [];
+    let fractions = [];
     const array = input.split("");
     array.map((element, index) => {
       if ([".", "/"].includes(element) || isNaN(parseInt(element)) === false) {
         return num.push(element);
       }
+      if (["/"].includes(element)) {
+        fractions.push(element);
+      }
     });
+
     return num.length === 0 ? 1 : eval(num.join(""));
   };
 
@@ -16,7 +20,9 @@ function ConvertHandler() {
     let unit = [];
     const array = input.split("");
     array.map((element) =>
-      isNaN(parseInt(element)) === true ? unit.push(element) : element
+      isNaN(parseInt(element)) === true && ![".", "/"].includes(element)
+        ? unit.push(element)
+        : element
     );
     result = unit.join("").toLowerCase();
     return result;

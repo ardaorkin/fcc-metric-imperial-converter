@@ -10,7 +10,8 @@ module.exports = function (app) {
     var input = req.query.input;
     var initNum = convertHandler.getNum(input);
     var initUnit = convertHandler.getUnit(input);
-    if (units.includes(initUnit)) {
+    if (units.includes(initUnit.toLowerCase())) {
+      console.log(initUnit);
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
 
