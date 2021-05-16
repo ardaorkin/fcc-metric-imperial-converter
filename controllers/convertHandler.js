@@ -35,17 +35,17 @@ function ConvertHandler() {
 
   this.getReturnUnit = function (initUnit) {
     let unit;
-    if (initUnit === "gal") {
+    if (initUnit.toLowerCase() === "gal") {
       unit = "L";
-    } else if (initUnit === "l") {
+    } else if (initUnit.toLowerCase() === "l") {
       unit = "gal";
-    } else if (initUnit === "lbs") {
+    } else if (initUnit.toLowerCase() === "lbs") {
       unit = "kg";
-    } else if (initUnit === "kg") {
+    } else if (initUnit.toLowerCase() === "kg") {
       unit = "lbs";
-    } else if (initUnit === "mi") {
+    } else if (initUnit.toLowerCase() === "mi") {
       unit = "km";
-    } else if (initUnit === "km") {
+    } else if (initUnit.toLowerCase() === "km") {
       unit = "mi";
     }
     return unit;
