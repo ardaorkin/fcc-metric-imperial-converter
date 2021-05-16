@@ -7,12 +7,15 @@ function ConvertHandler() {
       if ([".", "/"].includes(element) || isNaN(parseInt(element)) === false) {
         return num.push(element);
       }
-      if (["/"].includes(element)) {
-        fractions.push(element);
-      }
     });
 
-    return num.length === 0 ? 1 : eval(num.join(""));
+    num.map((element) => (element === "/" ? fractions.push(element) : element));
+
+    return fractions.length > 1
+      ? "invalid number"
+      : num.length === 0
+      ? 1
+      : eval(num.join(""));
   };
 
   this.getUnit = function (input) {
