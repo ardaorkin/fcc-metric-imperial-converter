@@ -8,7 +8,7 @@ function ConvertHandler() {
         return num.push(element);
       }
     });
-    return eval(num.join(""));
+    return num.length === 0 ? 1 : eval(num.join(""));
   };
 
   this.getUnit = function (input) {
